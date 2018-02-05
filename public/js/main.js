@@ -21,6 +21,10 @@ function createPlayerEnv(playerEntity){
 async function main(canvas){
     const context = canvas.getContext('2d');
 
+    var audio = new Audio('../audio/theme.mp3');
+    audio.volume = 0.05;
+    audio.play();
+
     const [entityFactory,font] = await Promise.all([
         loadEntities(),
         loadFont(),
