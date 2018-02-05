@@ -1,44 +1,43 @@
 import SpriteSheet from './SpriteSheet.js';
 import {createAnim} from './anim.js';
 
-export function loadImage(url){
+export function loadImage(url) {
     return new Promise(resolve => {
         const image = new Image();
-        image.addEventListener('load',() => {
+        image.addEventListener('load', () => {
             resolve(image);
         });
         image.src = url;
     });
 }
 
-export function loadJSON(url){
+export function loadJSON(url) {
     return fetch(url)
     .then(r => r.json());
 }
 
-
-export function loadSpriteSheet(name){
+export function loadSpriteSheet(name) {
     return loadJSON(`/sprites/${name}.json`)
     .then(sheetSpec => Promise.all([
         sheetSpec,
         loadImage(sheetSpec.imageURL),
     ]))
-    .then(([sheetSpec, image]) => {
+    .then(([sheetSpec, image]) => {
         const sprites = new SpriteSheet(
-            image, 
-            sheetSpec.tileW, 
+            image,
+            sheetSpec.tileW,
             sheetSpec.tileH);
 
-        if(sheetSpec.tiles){
+        if (sheetSpec.tiles) {
             sheetSpec.tiles.forEach(tileSpec => {
                 sprites.defineTile(
-                    tileSpec.name, 
+                    tileSpec.name,
                     tileSpec.index[0],
                     tileSpec.index[1]);
             });
         }
-        
-        if(sheetSpec.frames){
+
+        if (sheetSpec.frames) {
             sheetSpec.frames.forEach(frameSpec => {
                 sprites.define(frameSpec.name, ...frameSpec.rect);
             });
@@ -54,4 +53,3 @@ export function loadSpriteSheet(name){
         return sprites;
     });
 }
-

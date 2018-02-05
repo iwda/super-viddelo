@@ -1,14 +1,15 @@
-import {loadMario} from './entities/mario.js';
-import {loadGoomba} from './entities/goomba.js';
-import {loadKoopa} from './entities/koopa.js';
+import {loadMario} from './entities/Mario.js';
+import {loadGoomba} from './entities/Goomba.js';
+import {loadKoopa} from './entities/Koopa.js';
 
-export function loadEntities(){
 
+export function loadEntities() {
     const entityFactories = {};
 
-    function addAs(name){
+    function addAs(name) {
         return factory => entityFactories[name] = factory;
     }
+
 
     return Promise.all([
         loadMario().then(addAs('mario')),

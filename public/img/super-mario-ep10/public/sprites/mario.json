@@ -1,5 +1,6 @@
 {
     "imageURL": "/img/characters.gif",
+
     "frames": [
         {
             "name": "idle",
@@ -26,6 +27,7 @@
             "rect": [355, 44, 16, 16]
         }
     ],
+
     "animations": [
         {
             "name": "run",

@@ -1,9 +1,8 @@
 import Compositor from './Compositor.js';
-import TileCollider from './TileCollidor.js';
-
+import TileCollider from './TileCollider.js';
 
 export default class Level {
-    constructor(){
+    constructor() {
         this.gravity = 1500;
         this.totalTime = 0;
 
@@ -13,11 +12,11 @@ export default class Level {
         this.tileCollider = null;
     }
 
-    setCollisionGrid(matrix){
-        this.tileCollider = new TileCollider(matrix)
+    setCollisionGrid(matrix) {
+        this.tileCollider = new TileCollider(matrix);
     }
 
-    update(deltaTime){
+    update(deltaTime) {
         this.entities.forEach(entity => {
             entity.update(deltaTime);
 
