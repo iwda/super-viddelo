@@ -2,9 +2,9 @@
   "name": "super-viddelo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "start": "serve ./public",
+    "start": "serve -p 8080 ./public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
