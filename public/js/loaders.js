@@ -1,4 +1,4 @@
-import Level from './Level.js';
+import Level from './level.js';
 import SpriteSheet from './SpriteSheet.js';
 import {createBackgroundLayer, createSpriteLayer} from './layers.js';
 import {createAnim} from './anim.js';
